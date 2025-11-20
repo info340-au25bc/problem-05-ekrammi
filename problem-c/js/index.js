@@ -38,6 +38,10 @@ let huskyGames2016 = [
 //UW's opponent (whether or not that was the home team!)
 //You can test this by passing in an individual element from the array.
 
+function extractOpponent(game){
+  
+}
+
 
 //Use the `map()` method and your `extractOpponent()` function to create an array
 //of UW's opponents for the season (in the same order as in the `huskyGames2016`).
