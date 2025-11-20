@@ -3,7 +3,7 @@
 /* Define a function `addFour()` that takes a single argument 
    and returns a value 4 greater than the input.*/
   function addFour(singleArg){
-    return singleArg > 4;
+    return singleArg + 4;
 
    }
    
@@ -20,7 +20,7 @@
 
 
   // The function could be explained.
- twelveString = addFour("8")
+ let twelveString = addFour("8");
  console.log(twelveString);
 
 
@@ -59,7 +59,7 @@ function compoundInterest(initialBalance, annualInterest, years){
     if (number < 1){
       return array;
     } 
-    for(let i = 0; i < number; i++){
+    for(let i = 1; i <= number; i++){
       if (i % 3 == 0 && i % 5 == 0){
         array.push("FizzBuzz");
       } else if (i % 3 == 0){
@@ -69,10 +69,8 @@ function compoundInterest(initialBalance, annualInterest, years){
       } else{
         array.push(i);
       }
-
       }
       return array;
-
     }
     
 
@@ -93,13 +91,11 @@ function compoundInterest(initialBalance, annualInterest, years){
       let char = object[i];
       if (char in obj){
         obj[char] += 1;
-
       } else{
-        obj[char] = 1
+        obj[char] = 1;
       }
-
     }
-    return obj
+    return obj;
    }
 
 /* Create a variable `deck` that represents a deck of modern playing cards
@@ -114,17 +110,17 @@ function compoundInterest(initialBalance, annualInterest, years){
     
     You can log out the `deck` to check your work! */
 
-    let deck = [];
-    let suits = ["hearts", "diamonds", "clubs", "spades"];
-
-    for (let i = 0; i < suits.length; i++){
-      let suit = suits[i];
+  let deck = [];
+  let suits = ["hearts", "diamonds", "clubs", "spades"];
+  for (let i = 0; i < suits.length; i++){
+    let suit = suits[i];
       for (let rank = 2; rank <= 14; rank++){
         deck.push({suit: suit, rank: rank
         });
       }
     }
     console.log(deck);
+
 
 //You can test the below functions by creating e.g., a `pokerHand` array that 
 //contains five cards from the `deck`.
@@ -134,6 +130,7 @@ let pokerHands = [
   {suit: "clubs", rank: 7}, 
   {suit: "spades", rank: 2}
 ];
+
 
 
 /* Define a function `containsQueenOfHearts()` that takes in an array of "card"
@@ -163,15 +160,11 @@ function getHighCard(card){
   let highRank = card[0];
   for (let i of card){
     if(i.rank > highRank.rank){
-      highRank = i
+      highRank = i;
     } 
     }
     return highRank;
   }
-
-
-
-  
 
 /* Define a function `isFlush()` that takes in an array of "card" objects and
    returns whether or not the cards all have the same _suit_. */
@@ -181,8 +174,6 @@ function isFlush(card){
     if(i.suit !== sameSuit){
       return false;
     }
-
-
   }
   return true;
 
@@ -196,10 +187,15 @@ function isFlush(card){
    (e.g., if the hand contains more than one pair!) */
 
    function hasPair(card){
-
+    for(let i = 0; i < card.length; i++){
+      for(let j = i + 1; j < card.length; j++){
+        if(card[i].rank === card[j].rank){
+          return true;
+        }
+      }
+    }
+    return false;
    }
-
-
 
 //Make functions and variables available to tester. DO NOT MODIFY THIS.
 if(typeof module !== 'undefined' && module.exports){
@@ -222,4 +218,6 @@ if(typeof module !== 'undefined' && module.exports){
     module.exports.getHighCard = getHighCard;
   if(typeof isFlush !== 'undefined')
     module.exports.isFlush = isFlush;
+  if(typeof hasPair !== 'undefined')
+    module.exports.haspair == hasPair;
 }
